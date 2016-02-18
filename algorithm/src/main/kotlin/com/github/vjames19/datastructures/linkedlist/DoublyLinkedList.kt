@@ -4,7 +4,6 @@ package com.github.vjames19.datastructures.linkedlist
  * Created by vjames19 on 2/17/16.
  */
 class DoublyLinkedList<E> : LinkedList<E> {
-
     private var size: Int = 0
 
     private var head: Node<E>
@@ -42,25 +41,28 @@ class DoublyLinkedList<E> : LinkedList<E> {
     }
 
     override fun removeFirst(): E? {
+        return remove(head.next!!)
+    }
+
+    override fun removeLast(): E? {
+        return remove(tail.previous!!)
+    }
+
+    private fun remove(node: Node<E>): E? {
         if (isEmpty()) {
             return null
         } else {
-            val element = first()
+            val element = node.element
+            val previous = node.previous
+            val next = node.next
 
-            remove(head.next!!)
+            previous!!.next = next
+            next!!.previous = previous
+
+            size--
 
             return element
         }
-    }
-
-    private fun remove(node: Node<E>) {
-        val previous = node.previous
-        val next = node.next
-
-        previous!!.next = next
-        next!!.previous = previous
-
-        size--
     }
 
     override fun clear() {

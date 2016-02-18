@@ -53,6 +53,30 @@ class SinglyLinkedList<E> : LinkedList<E> {
         }
     }
 
+    override fun removeLast(): E? {
+        if (isEmpty()) {
+            return null
+        } else {
+            if (size() == 1) {
+                return removeFirst()
+            } else {
+                val element = last();
+
+                var runner = head
+                while(runner!!.next != tail) {
+                    runner = runner.next
+                }
+
+                runner.next = null
+                tail = runner
+
+                size--
+
+                return element
+            }
+        }
+    }
+
     override fun clear() {
         while(!isEmpty()) {
             removeFirst();

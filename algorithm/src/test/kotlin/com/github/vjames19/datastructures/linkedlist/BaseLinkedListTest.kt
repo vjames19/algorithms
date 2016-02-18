@@ -1,8 +1,7 @@
 
 package com.github.vjames19.datastructures.linkedlist
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
@@ -28,12 +27,15 @@ abstract class BaseLinkedListTest {
     @Test
     fun testWhenAddingElementsItShouldNotBeEmpty() {
         list.addFirst(1)
+
         assertEquals(1, list.size())
 
         list.addFirst(2)
         list.addLast(3)
         list.addFirst(1)
+
         assertEquals(4, list.size())
+        assertFalse(list.isEmpty())
     }
 
     @Test
@@ -86,5 +88,16 @@ abstract class BaseLinkedListTest {
         assertEquals(2, list.removeFirst())
         assertEquals(1, list.removeFirst())
         assertEquals(3, list.removeFirst())
+    }
+
+    @Test
+    fun testRemoveLast() {
+        list.addLast(1)
+        list.addLast(2)
+        list.addLast(3)
+
+        assertEquals(3, list.removeLast())
+        assertEquals(2, list.removeLast())
+        assertEquals(1, list.removeLast())
     }
 }
