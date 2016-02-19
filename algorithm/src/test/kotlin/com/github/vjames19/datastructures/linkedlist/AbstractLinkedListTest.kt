@@ -8,7 +8,7 @@ import org.junit.Test
 /**
  * Created by vjames19 on 2/17/16.
  */
-abstract class BaseLinkedListTest {
+abstract class AbstractLinkedListTest {
 
     var list: LinkedList<Int> = createList()
 

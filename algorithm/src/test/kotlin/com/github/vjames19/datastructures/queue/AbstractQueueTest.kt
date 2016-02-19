@@ -7,7 +7,7 @@ import org.junit.Test
 /**
  * Created by vjames19 on 2/17/16.
  */
-abstract class BaseQueueTest {
+abstract class AbstractQueueTest {
 
     var queue = createQueue()
 
@@ -21,6 +21,7 @@ abstract class BaseQueueTest {
     @Test
     fun testNewQueueShouldBeEmpty() {
         assertTrue(queue.isEmpty())
+        assertEquals(0, queue.size())
     }
 
     @Test
