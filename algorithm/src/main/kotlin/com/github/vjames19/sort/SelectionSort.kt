@@ -8,7 +8,7 @@ class SelectionSort<E : Comparable<E>> : Sort<E> {
     override fun sort(list: MutableList<E>) {
         for (i in 0..list.lastIndex) {
             var min = i
-            for (j in i+1..list.lastIndex) {
+            for (j in i + 1..list.lastIndex) {
                 if (isLess(list[j], list[min])) {
                     min = j;
                 }

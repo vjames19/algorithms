@@ -49,9 +49,9 @@ abstract class BaseSortTest(val createSort: () -> Sort<Int>) {
         assertTrue(isSorted(list))
     }
 
-    private fun <E: Comparable<E>> isSorted(list: List<E>): Boolean {
+    private fun <E : Comparable<E>> isSorted(list: List<E>): Boolean {
         for (i in 1..list.lastIndex) {
-            if (list[i].compareTo(list[i-1]) < 0) {
+            if (list[i].compareTo(list[i - 1]) < 0) {
                 return false
             }
         }

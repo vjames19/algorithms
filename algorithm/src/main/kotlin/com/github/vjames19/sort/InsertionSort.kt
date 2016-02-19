@@ -8,8 +8,8 @@ class InsertionSort<E : Comparable<E>> : Sort<E> {
     override fun sort(list: MutableList<E>) {
         for (i in 1..list.lastIndex) {
             var j = i;
-            while(j>0 && isLess(list[j], list[j-1])) {
-                list.swap(j, j-1)
+            while (j > 0 && isLess(list[j], list[j - 1])) {
+                list.swap(j, j - 1)
                 j--
             }
         }
