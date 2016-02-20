@@ -42,23 +42,26 @@ class ArrayHeapPriorityQueue<K : Comparable<K>>(
 
     fun sink(index: Int) {
         var nodeIndex = index
-        while (leftIndex(nodeIndex) < size()) {
-            var childIndex = leftIndex(nodeIndex)
-            if (childIndex < size() - 1 && isLess(childIndex, childIndex + 1)) {
-                childIndex++
+        while (hasLeftChild(nodeIndex)) {
+            var maxChildIndex = leftIndex(nodeIndex)
+            if (hasRightChild(nodeIndex) && isLess(maxChildIndex, maxChildIndex + 1)) {
+                maxChildIndex++
             }
 
-            if (isLess(nodeIndex, childIndex)) {
-                heap.swap(nodeIndex, childIndex)
-                nodeIndex = childIndex
+            if (isLess(nodeIndex, maxChildIndex)) {
+                heap.swap(nodeIndex, maxChildIndex)
+                nodeIndex = maxChildIndex
             } else {
                 return
             }
         }
     }
 
-    fun parentIndex(index: Int) = (index - 1) / 2
-    fun leftIndex(index: Int) = index * 2 + 1
+
+    private fun parentIndex(index: Int) = (index - 1) / 2
+    private fun leftIndex(index: Int) = index * 2 + 1
+    private fun hasLeftChild(nodeIndex: Int) = leftIndex(nodeIndex) < size()
+    private fun hasRightChild(nodeIndex: Int) = leftIndex(nodeIndex) + 1 < size()
 
     fun isLess(index1: Int, index2: Int) = comparator.compare(heap[index1], heap[index2]) < 0
 
