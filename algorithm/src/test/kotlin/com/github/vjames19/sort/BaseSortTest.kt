@@ -33,7 +33,7 @@ abstract class BaseSortTest(val createSort: () -> Sort<Int>) {
 
     @Test
     fun sortDescending() {
-        val list = mutableListOf(1, 2, 3, 4, 5)
+        val list = mutableListOf(1, 2, 3, 4, 5, 6)
         var expected = list.sorted()
 
         list.sortDescending()
