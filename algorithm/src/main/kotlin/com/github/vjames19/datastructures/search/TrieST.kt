@@ -15,6 +15,10 @@ class TrieST<Value> : ST<String, Value> {
     }
 
     override fun get(key: String): Value? {
+        return getNode(key)?.value
+    }
+
+    private fun getNode(key: String): Trie? {
         var trie = root
         key.forEachIndexed { index, c ->
             if (!trie.map.containsKey(c)) {
@@ -23,7 +27,7 @@ class TrieST<Value> : ST<String, Value> {
                 trie = trie.map[c]!!
 
                 if (index == key.lastIndex) {
-                    return trie.value
+                    return trie
                 }
             }
         }
@@ -81,6 +85,25 @@ class TrieST<Value> : ST<String, Value> {
             }
 
             return trie.map.isEmpty()
+        }
+    }
+
+    fun keys(): Iterable<String> {
+        return keysWithPrefix("")
+    }
+
+    fun keysWithPrefix(prefix: String): Iterable<String> {
+        val keys = ArrayList<String>()
+        collectKeys(getNode(prefix), prefix, keys)
+        return keys
+    }
+
+    private fun collectKeys(trie: Trie?, prefix: String, keys: ArrayList<String>) {
+        if (trie == null) return
+        if (trie.value != null) keys.add(prefix)
+
+        trie.map.entries.forEach {
+            collectKeys(it.value, prefix + it.key, keys)
         }
     }
 
