@@ -4,7 +4,6 @@ package com.github.vjames19.search
  * Created by vjames19 on 2/20/16.
  */
 class BinarySearchTree<Key: Comparable<Key>, Value>: ST<Key, Value> {
-
     data class Node<Key, Value>(var key: Key, var value: Value, var left: Node<Key, Value>? = null, var right: Node<Key, Value>? = null)
 
     private var root: Node<Key, Value>? = null
@@ -84,6 +83,10 @@ class BinarySearchTree<Key: Comparable<Key>, Value>: ST<Key, Value> {
 
             return root
         }
+    }
+
+    override fun size(): Int {
+        return size
     }
 
     fun min(): Key? {

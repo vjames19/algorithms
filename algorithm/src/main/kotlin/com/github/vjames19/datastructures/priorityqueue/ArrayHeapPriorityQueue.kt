@@ -34,7 +34,7 @@ class ArrayHeapPriorityQueue<K : Comparable<K>>(
 
     fun swim(index: Int) {
         var nodeIndex = index
-        while (nodeIndex > 1 && isLess(parentIndex(nodeIndex), nodeIndex)) {
+        while (nodeIndex > 0 && isLess(parentIndex(nodeIndex), nodeIndex)) {
             heap.swap(parentIndex(nodeIndex), nodeIndex)
             nodeIndex = parentIndex(nodeIndex)
         }
