@@ -9,3 +9,5 @@ fun <E> MutableList<E>.swap(i: Int, j: Int) {
     this[i] = this[j]
     this[j] = temp
 }
+
+fun <T> Comparable<T>.isLess(other: T) = this.compareTo(other) < 0
