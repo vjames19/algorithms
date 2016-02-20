@@ -6,7 +6,7 @@ import java.util.*
 /**
  * Created by vjames19 on 2/19/16.
  */
-class ArrayPriorityQueue<K : Comparable<K>>(
+class ArrayHeapPriorityQueue<K : Comparable<K>>(
         val comparator: Comparator<K> = Comparator { a, b -> a.compareTo(b) }) : PriorityQueue<K> {
 
     val heap = mutableListOf<K>()

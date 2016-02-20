@@ -53,6 +53,24 @@ abstract class BasePriorityQueueTest(val createPriorityQueue: (comparator: Compa
     }
 
     @Test
+    fun delMaxWithRandomData() {
+        val list = listOf(1, 5, 10, 2, -1, 3, 203, 1000, 23203, -11000)
+
+        list.forEach {
+            priorityQueue.insert(it)
+        }
+
+        val result = mutableListOf<Int>()
+
+        while(!priorityQueue.isEmpty()) {
+            result.add(priorityQueue.delMax())
+        }
+
+        assertEquals(list.sortedDescending(), result)
+        assertTrue(priorityQueue.isEmpty())
+    }
+
+    @Test
     fun delMaxWithComparator() {
         priorityQueue = createPriorityQueue(Comparator { a, b -> b.compareTo(a)})
 
