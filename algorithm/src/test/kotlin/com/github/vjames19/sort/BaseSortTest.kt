@@ -1,6 +1,6 @@
 package com.github.vjames19.sort
 
-import org.junit.Assert.assertTrue
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
@@ -18,44 +18,38 @@ abstract class BaseSortTest(val createSort: () -> Sort<Int>) {
 
     @Test
     fun isLess() {
-        sort.isLess(1, 2)
+        sort.isLess(-1, 1)
     }
 
     @Test
     fun sortAlreadySorted() {
         val list = mutableListOf(1, 2, 3, 4, 5)
+        val expected = list.toList()
 
         sort.sort(list)
 
-        assertTrue(isSorted(list))
+        assertEquals(expected, list)
     }
 
     @Test
     fun sortDescending() {
         val list = mutableListOf(1, 2, 3, 4, 5)
+        var expected = list.sorted()
+
         list.sortDescending()
 
         sort.sort(list)
 
-        assertTrue(isSorted(list))
+        assertEquals(expected, list)
     }
 
     @Test
     fun sortRandom() {
-        val list = mutableListOf(1, 5, 10, 2, -1, 3, 203, 1000, 23203, -1000)
+        val list = mutableListOf(1, 5, 10, 2, -1, 3, 203, 1000, 23203, -11000)
+        var expected = list.sorted()
 
         sort.sort(list)
 
-        assertTrue(isSorted(list))
-    }
-
-    private fun <E : Comparable<E>> isSorted(list: List<E>): Boolean {
-        for (i in 1..list.lastIndex) {
-            if (list[i].compareTo(list[i - 1]) < 0) {
-                return false
-            }
-        }
-
-        return true
+        assertEquals(expected, list)
     }
 }

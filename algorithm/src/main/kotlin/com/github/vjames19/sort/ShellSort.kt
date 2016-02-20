@@ -12,7 +12,7 @@ class ShellSort<E : Comparable<E>> : Sort<E> {
         while (h >= 1) {
             for (i in h..list.lastIndex) {
                 var j = i;
-                while (j > h && isLess(list[j], list[j - h])) {
+                while (j >= h && isLess(list[j], list[j - h])) {
                     list.swap(j, j - h)
                     j -= h
                 }
