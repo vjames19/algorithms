@@ -1,9 +1,9 @@
-package com.github.vjames19.datastructures.tree
+package com.github.vjames19.search
 
 /**
  * Created by vjames19 on 2/20/16.
  */
-class BinarySearchTree<Key: Comparable<Key>, Value> {
+class BinarySearchTree<Key: Comparable<Key>, Value>: ST<Key, Value> {
 
     data class Node<Key, Value>(var key: Key, var value: Value, var left: Node<Key, Value>? = null, var right: Node<Key, Value>? = null)
 
@@ -12,7 +12,7 @@ class BinarySearchTree<Key: Comparable<Key>, Value> {
     var size = 0
         private set
 
-    fun get(key: Key): Value? {
+    override fun get(key: Key): Value? {
         return get(root, key)
     }
 
@@ -32,7 +32,7 @@ class BinarySearchTree<Key: Comparable<Key>, Value> {
         }
     }
 
-    fun put(key: Key, value: Value) {
+    override fun put(key: Key, value: Value) {
         root = put(root, key, value)
     }
 
@@ -55,7 +55,7 @@ class BinarySearchTree<Key: Comparable<Key>, Value> {
         }
     }
 
-    fun remove(key: Key) {
+    override fun remove(key: Key) {
         root = remove(root, key)
     }
 
@@ -130,6 +130,4 @@ class BinarySearchTree<Key: Comparable<Key>, Value> {
             }
         }
     }
-
-
 }
