@@ -42,7 +42,7 @@ class BreadthFirstPath<V>(val graph: Graph<V>, val source: V) : Path<V> {
         val stack = Stack<V>()
         var node = edgeToMap[v]
 
-        while (node != null) {
+        while (node != source) {
             stack.push(node)
             node = edgeToMap[node]
         }
