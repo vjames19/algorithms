@@ -6,7 +6,7 @@ import java.util.*
 /**
  * Created by vjames19 on 2/21/16.
  */
-class TopologicalSortTraversal<V>(graph: DirectedGraph<V>) : BaseTraversal<V>(graph) {
+class ReversePostOrderTraversal<V>(graph: DirectedGraph<V>) : BaseTraversal<V>(graph) {
 
     val stack = Stack<V>()
 
