@@ -66,7 +66,7 @@ class DoublyLinkedList<E> : LinkedList<E> {
     }
 
     override fun clear() {
-        while(!isEmpty()) {
+        while (!isEmpty()) {
             removeFirst();
         }
     }

@@ -5,7 +5,7 @@ import com.github.vjames19.datastructures.stack.DynamicArrayStack
 /**
  * Created by vjames19 on 2/17/16.
  */
-class DoubleStackQueue<E>: Queue<E>{
+class DoubleStackQueue<E> : Queue<E> {
 
     val enqueue = DynamicArrayStack<E>()
     val dequeue = DynamicArrayStack<E>()

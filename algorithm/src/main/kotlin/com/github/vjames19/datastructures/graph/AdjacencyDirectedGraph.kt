@@ -14,7 +14,7 @@ class AdjacencyDirectedGraph<V> : DirectedGraph<V>, AdjacencyGraph<V>() {
         vertices.getOrPut(w, { LinkedList() })
         edges++
 
-        indegrees.compute(w, {v, indegree ->
+        indegrees.compute(w, { v, indegree ->
             indegree + 1
         })
     }

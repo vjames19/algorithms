@@ -22,7 +22,7 @@ class SinglyLinkedList<E> : LinkedList<E> {
         head = Node(element, head)
 
         if (isEmpty()) {
-             tail = head
+            tail = head
         }
 
         size++
@@ -63,7 +63,7 @@ class SinglyLinkedList<E> : LinkedList<E> {
                 val element = last();
 
                 var runner = head
-                while(runner!!.next != tail) {
+                while (runner!!.next != tail) {
                     runner = runner.next
                 }
 
@@ -78,7 +78,7 @@ class SinglyLinkedList<E> : LinkedList<E> {
     }
 
     override fun clear() {
-        while(!isEmpty()) {
+        while (!isEmpty()) {
             removeFirst();
         }
     }

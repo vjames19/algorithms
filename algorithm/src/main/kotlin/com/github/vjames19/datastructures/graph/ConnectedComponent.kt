@@ -32,7 +32,6 @@ class ConnectedComponent<V>(val graph: Graph<V>) {
         }
     }
 
-
     fun count() = connectedCount
 
     fun isConnected(v: V, w: V) = visited.contains(v) && visited.contains(w) && id[v] == id[w]

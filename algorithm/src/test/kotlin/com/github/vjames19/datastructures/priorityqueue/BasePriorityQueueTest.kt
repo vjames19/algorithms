@@ -44,7 +44,7 @@ abstract class BasePriorityQueueTest(val createPriorityQueue: (comparator: Compa
 
         val result = mutableListOf<Int>()
 
-        while(!priorityQueue.isEmpty()) {
+        while (!priorityQueue.isEmpty()) {
             result.add(priorityQueue.delMax())
         }
 
@@ -62,7 +62,7 @@ abstract class BasePriorityQueueTest(val createPriorityQueue: (comparator: Compa
 
         val result = mutableListOf<Int>()
 
-        while(!priorityQueue.isEmpty()) {
+        while (!priorityQueue.isEmpty()) {
             result.add(priorityQueue.delMax())
         }
 
@@ -72,7 +72,7 @@ abstract class BasePriorityQueueTest(val createPriorityQueue: (comparator: Compa
 
     @Test
     fun delMaxWithComparator() {
-        priorityQueue = createPriorityQueue(Comparator { a, b -> b.compareTo(a)})
+        priorityQueue = createPriorityQueue(Comparator { a, b -> b.compareTo(a) })
 
         val list = (1..997).toList()
 
@@ -82,7 +82,7 @@ abstract class BasePriorityQueueTest(val createPriorityQueue: (comparator: Compa
 
         val result = mutableListOf<Int>()
 
-        while(!priorityQueue.isEmpty()) {
+        while (!priorityQueue.isEmpty()) {
             result.add(priorityQueue.delMax())
         }
 

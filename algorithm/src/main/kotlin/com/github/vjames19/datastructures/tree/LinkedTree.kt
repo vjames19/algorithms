@@ -7,7 +7,7 @@ class LinkedTree<E>(override var element: E) : Tree<E> {
 
     override var parent: Tree<E>? = null
 
-    private val childrenList : MutableList<Tree<E>> = mutableListOf()
+    private val childrenList: MutableList<Tree<E>> = mutableListOf()
 
     override fun children(): List<Tree<E>> {
         return childrenList

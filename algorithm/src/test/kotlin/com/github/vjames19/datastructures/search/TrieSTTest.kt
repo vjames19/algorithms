@@ -34,7 +34,6 @@ class TrieSTTest : BaseSTTest({ TrieST() }) {
         }
 
 
-
         val trieST = st as TrieST
         assertTrue(trieST.keysWithPrefix("holas").toList().containsAll(holas))
     }
@@ -50,7 +49,6 @@ class TrieSTTest : BaseSTTest({ TrieST() }) {
         holas.forEachIndexed { index, key ->
             st.put(key, index)
         }
-
 
 
         val trieST = st as TrieST

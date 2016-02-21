@@ -5,7 +5,7 @@ import com.github.vjames19.datastructures.linkedlist.SinglyLinkedList
 /**
  * Created by vjames19 on 2/17/16.
  */
-class LinkedListQueue<E>: Queue<E> {
+class LinkedListQueue<E> : Queue<E> {
 
     val queue = SinglyLinkedList<E>()
 

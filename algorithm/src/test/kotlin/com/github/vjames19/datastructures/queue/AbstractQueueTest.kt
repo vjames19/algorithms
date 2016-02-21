@@ -60,7 +60,7 @@ abstract class AbstractQueueTest {
         assertEquals(2, queue.dequeue())
         assertEquals(3, queue.dequeue())
     }
-    
+
     @Test
     fun testFirstShouldBeTheFirstEnqueued() {
         queue.enqueue(1)

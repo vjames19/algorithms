@@ -3,7 +3,7 @@ package com.github.vjames19.datastructures.tree
 /**
  * Created by vjames19 on 2/19/16.
  */
-interface Tree<E>: Iterable<Tree<E>> {
+interface Tree<E> : Iterable<Tree<E>> {
 
     var element: E;
 
@@ -11,7 +11,7 @@ interface Tree<E>: Iterable<Tree<E>> {
 
     fun root(): Tree<E> {
         var tree = this;
-        while(!tree.isRoot()) {
+        while (!tree.isRoot()) {
             tree = tree.parent!!
         }
         return tree;

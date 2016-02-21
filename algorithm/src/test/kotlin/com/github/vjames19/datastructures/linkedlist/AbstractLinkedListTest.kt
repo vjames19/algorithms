@@ -1,4 +1,3 @@
-
 package com.github.vjames19.datastructures.linkedlist
 
 import org.junit.Assert.*
@@ -51,6 +50,7 @@ abstract class AbstractLinkedListTest {
         assertTrue(list.isEmpty())
 
     }
+
     @Test
     fun testWhenClearingTheListItShouldBeEmpty() {
         list.addFirst(1)
