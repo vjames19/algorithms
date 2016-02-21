@@ -10,7 +10,8 @@ class DepthFirstSearch<V>(val graph: Graph<V>) {
     var count = 0
         private set
 
-    val visited = HashSet<V>()
+    private val visited = HashSet<V>()
+
 
     fun dfs(v: V) {
         visited.add(v)
