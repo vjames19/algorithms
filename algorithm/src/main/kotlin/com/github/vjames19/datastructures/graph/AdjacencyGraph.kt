@@ -5,11 +5,11 @@ import java.util.*
 /**
  * Created by vjames19 on 2/20/16.
  */
-class AdjacencyGraph<V> : Graph<V> {
+open class AdjacencyGraph<V> : Graph<V> {
 
-    private var edges = 0
+    protected var edges = 0
 
-    private val vertices = HashMap<V, LinkedList<V>>()
+    protected val vertices = HashMap<V, LinkedList<V>>()
 
     override fun vertices() = vertices.keys
 
@@ -18,9 +18,9 @@ class AdjacencyGraph<V> : Graph<V> {
     override fun addEdge(v: V, w: V) {
         vertices.getOrPut(v, { LinkedList() }).push(w)
         vertices.getOrPut(w, { LinkedList() }).push(v)
+
+        edges++
     }
 
-    override fun adjecent(v: V): Iterable<V> {
-        throw UnsupportedOperationException()
-    }
+    override fun adjecent(v: V) = vertices.getOrElse(v, { emptyList<V>() })
 }
